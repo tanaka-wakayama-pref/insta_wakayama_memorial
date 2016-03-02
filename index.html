@@ -13,6 +13,21 @@
     <section class="page-header">
       <h1 class="project-name">Insta wakayama memorial</h1>
       <h2 class="project-tagline">insta_wakayamaのハッシュタグが１万件を超えた記念</h2>
+      
+      $(document).ready(function() {
+    var feed = new Instafeed({
+        get: 'tagged', //ハッシュタグから取得
+        tagName: 'insta_wakayama', //好きなハッシュタグを設定
+        sortBy:'random', //並び順をランダムに
+        links: true , //画像リンク取得
+        limit: 20, //取得する画像数を設定
+        resolution: 'low_resolution', //画像サイズを設定
+        template: '<li><a href="{{link}}"><img src="{{image}}" target="_blank" /></a><span>{{caption}}</span><span>like:{{likes}},comments:{{comments}}</span></li>',
+        clientId: '11f682ac65eb46319e87bbbad2c79f99' //Instagram DevelopersのクライアントID
+    });
+    feed.run();
+});
+      
       <a href="https://github.com/tanaka-wakayama-pref/insta_wakayama_memorial" class="btn">View on GitHub</a>
       <a href="https://github.com/tanaka-wakayama-pref/insta_wakayama_memorial/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/tanaka-wakayama-pref/insta_wakayama_memorial/tarball/master" class="btn">Download .tar.gz</a>
